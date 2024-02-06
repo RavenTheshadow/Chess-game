@@ -42,6 +42,7 @@ public class Input extends MouseAdapter {
             if(board.isValidMove(move)) {
                 board.makeMove(move);
                 board.lastMoveIsWhite = move.pieces.isWhite;
+                move.pieces.isFirstmove = false;
             }
             else {
                 board.selectedPiece.xPos = board.selectedPiece.getCol() * board.titleSize;

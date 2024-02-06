@@ -3,6 +3,7 @@ package Pieces;
 import Main.Board;
 import Control.Move;
 import java.awt.image.BufferedImage;
+import static java.lang.Math.abs;
 
 public class Knight extends Pieces {
     public Knight(Board board, int row, int col, boolean isWhite) {
@@ -19,5 +20,8 @@ public class Knight extends Pieces {
     public void move() {}
     public void draw() {}
 
-    public  boolean gamelogic(Move move) {return true;}
+    public  boolean gamelogic(Move move) {
+        return abs(move.newCol - move.oldCol) == 2 && abs(move.newRow - move.oldRow) == 1 ||
+                abs(move.newRow - move.oldRow) == 2 && abs(move.newCol - move.oldCol) == 1;
+    }
 }

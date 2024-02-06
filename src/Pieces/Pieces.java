@@ -14,12 +14,13 @@ public abstract class Pieces {
     protected int Chunk;
     public Image Sprite;
     Board board;
+    public boolean isFirstmove;
     public int row, col;
     public int xPos, yPos;
     public int getRow() { return row;}
     public int getCol() { return col;}
     public boolean isWhite;
-    String Name;
+    public String Name;
     public Pieces(Board board) {this.board = board;}
     private String getImage() {
         return "D://JAVA//Chess//src//Res//Pieces.png";

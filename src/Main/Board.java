@@ -65,6 +65,21 @@ public class Board extends JPanel {
                 g2d.fillRect(c * titleSize, r * titleSize, titleSize, titleSize);
             }
         }
+        if(selectedPiece != null) {
+            for (int r = 0; r < Rows; r++) {
+                for (int c = 0; c < Cols; c++) {
+                    if (this.isValidMove(new Move(this, selectedPiece, c, r))) {
+                        g2d.setColor(new Color(5, 36, 245, 153));
+                        g2d.fillRect(c * titleSize, r * titleSize, titleSize, titleSize);
+
+                        if(getPieces(c, r) != null) {
+                            g2d.setColor(new Color(250, 0, 0, 153));
+                            g2d.fillRect(c * titleSize, r * titleSize, titleSize, titleSize);
+                        }
+                    }
+                }
+            }
+        }
         for(Pieces pieces1 : pieces) {
             pieces1.paint(g2d);
         }
@@ -90,6 +105,9 @@ public class Board extends JPanel {
         return (!lastMoveIsWhite || !move.pieces.isWhite) && (lastMoveIsWhite || move.pieces.isWhite);
     }
     public  boolean isValidMove(Move move) {
-        return !SameColor(move.pieces, move.capture) && Nextmove(move) && move.pieces.gamelogic(move);
+        if (!SameColor(move.pieces, move.capture) && Nextmove(move)) {
+            return move.pieces.gamelogic(move);
+        }
+        return false;
     }
 }

@@ -21,6 +21,6 @@ public class King extends  Pieces{
     public void move() {}
     public void draw() {}
     public  boolean gamelogic(Move move) {
-        return abs(move.newCol - move.oldCol) == 1 || abs(move.newRow - move.oldRow) == 1;
+        return abs(move.newCol - move.oldCol) <= 1 && abs(move.newRow - move.oldRow) <= 1;
     }
 }

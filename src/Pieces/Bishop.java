@@ -21,5 +21,7 @@ public class Bishop extends Pieces {
     public void move() {}
     public void draw() {}
 
-    public  boolean gamelogic(Move move) { return true;}
+    public  boolean gamelogic(Move move) {
+        return move.newRow - move.newCol == move.oldRow - move.oldCol || move.newRow + move.newCol == move.oldRow + move.oldCol;
+    }
 }

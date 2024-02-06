@@ -20,5 +20,7 @@ public class Rook extends Pieces {
     }
     public void move() {}
     public void draw() {}
-    public  boolean gamelogic(Move move) {return true;}
+    public  boolean gamelogic(Move move) {
+        return move.newCol == move.oldCol || move.newRow == move.oldRow;
+    }
 }
