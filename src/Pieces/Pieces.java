@@ -1,12 +1,13 @@
 package Pieces;
 
-import Main.Board;
 import Control.Move;
+import Main.Board;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public abstract class Pieces {
     /*  Get the image */
@@ -39,8 +40,10 @@ public abstract class Pieces {
     public  void paint(Graphics2D g2d) {
         g2d.drawImage(this.Sprite, xPos, yPos, null);
     }
-    public abstract void move();
-
-    public abstract void draw();
     public abstract boolean gamelogic(Move move);
+    public ArrayList<Pieces> BoundList = new ArrayList<>();
+    public abstract boolean isBound();
+    public void ClearBoundList() {
+        if(!BoundList.isEmpty()) BoundList.clear();
+    }
 }

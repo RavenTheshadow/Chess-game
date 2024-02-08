@@ -72,7 +72,9 @@ public class Board extends JPanel {
                         g2d.setColor(new Color(5, 36, 245, 153));
                         g2d.fillRect(c * titleSize, r * titleSize, titleSize, titleSize);
 
-                        if(getPieces(c, r) != null) {
+                        Pieces pieces1 = getPieces(c, r);
+                        if(pieces1 != null) {
+                            selectedPiece.BoundList.add(pieces1);
                             g2d.setColor(new Color(250, 0, 0, 153));
                             g2d.fillRect(c * titleSize, r * titleSize, titleSize, titleSize);
                         }

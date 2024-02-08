@@ -43,13 +43,13 @@ public class Input extends MouseAdapter {
                 board.makeMove(move);
                 board.lastMoveIsWhite = move.pieces.isWhite;
                 move.pieces.isFirstmove = false;
+                move.pieces.ClearBoundList();
             }
             else {
                 board.selectedPiece.xPos = board.selectedPiece.getCol() * board.titleSize;
                 board.selectedPiece.yPos = board.selectedPiece.getRow() * board.titleSize;
             }
         }
-
         board.selectedPiece = null;
         board.repaint();
     }

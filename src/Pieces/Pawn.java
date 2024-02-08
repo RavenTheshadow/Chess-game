@@ -20,6 +20,8 @@ public class Pawn extends Pieces {
     }
     public void move() {}
     public void draw() {}
+    public boolean isBound() {return true;}
+
     public boolean gamelogic(Move move) {
         if (move.capture == null) {
            if(move.newCol != move.oldCol) return false;
